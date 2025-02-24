@@ -22,7 +22,7 @@ macro_rules! run_acceptance_test {
 
             let output = sanitize_lines(output);
 
-            insta::assert_display_snapshot!(output);
+            insta::assert_snapshot!(output);
         })
     };
     ($case_name:expr) => {
@@ -148,4 +148,9 @@ fn allow_stays_on_fn() {
 #[test]
 fn matrices_compilation_errors() {
     run_acceptance_test!("matrices_compilation_errors")
+}
+
+#[test]
+fn cases_are_enumerated() {
+    run_acceptance_test!("cases_are_enumerated")
 }
